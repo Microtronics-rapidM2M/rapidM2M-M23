@@ -12,8 +12,12 @@
  * 
  * The TMP112 is a high-accuracy digital temperature sensor. It is highly linear and provides
  * easy temperature calculation. The on-chip 12-bit ADC offers resolutions down to 0.0625°C.
+ *
+ * Interfaces: 1x I2C
  * 
  * Revision history:
+ * 20190726
+ * - TMP112_Write() and TMP112_Read(): Evaluation of the transferred register address optimized 
  * 20190723
  * - Edited configuration register initialisation value in TMP112_Init()
  * - Added data packing to TMP112_Write() and TMP112_Read()
@@ -103,12 +107,7 @@ stock TMP112_Write(handle[TTMP112_Handle], Reg, iValue)
       rM2M_Pack(Data, 1, iValue, RM2M_PACK_U16 + RM2M_PACK_BE);
       iLen = 3;
     }
-    case TMP112_TEMP_LOW_REG:
-    {
-      rM2M_Pack(Data, 1, iValue, RM2M_PACK_S16 + RM2M_PACK_BE);
-      iLen = 3;
-    }
-    case TMP112_TEMP_HIGH_REG:
+    case TMP112_TEMP_LOW_REG, TMP112_TEMP_HIGH_REG:
     {
       rM2M_Pack(Data, 1, iValue, RM2M_PACK_S16 + RM2M_PACK_BE);
       iLen = 3;
@@ -160,14 +159,10 @@ stock TMP112_Read(handle[TTMP112_Handle], Reg, &iValue)
 
   switch(Reg)
   {
-    case TMP112_TEMP_REG:
+    case TMP112_TEMP_REG, TMP112_TEMP_LOW_REG, TMP112_TEMP_HIGH_REG:
       rM2M_Pack(Data, 0, iValue, RM2M_PACK_S16 + RM2M_PACK_GET + RM2M_PACK_BE);
     case TMP112_CONFIG_REG:
       rM2M_Pack(Data, 0, iValue, RM2M_PACK_U16 + RM2M_PACK_GET + RM2M_PACK_BE);
-    case TMP112_TEMP_LOW_REG:
-      rM2M_Pack(Data, 0, iValue, RM2M_PACK_S16 + RM2M_PACK_GET + RM2M_PACK_BE);
-    case TMP112_TEMP_HIGH_REG:
-      rM2M_Pack(Data, 0, iValue, RM2M_PACK_S16 + RM2M_PACK_GET + RM2M_PACK_BE);
     default:
       return(ERROR);
   }
