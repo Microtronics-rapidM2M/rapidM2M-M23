@@ -1,0 +1,42 @@
+//===
+//=== Measurement Channels
+//===
+<split>
+  //Raw data channel (always "rm2mraw" for the rapidM2M) from which the data records should be copied
+  source =rm2mraw
+  //Measurement data channel (Histdata-stream) to which the data record should be copied
+  target =histdata0
+  //If the first byte of the data record corresponds to this value, it is copied to the specified measurement data channel.
+  key    =00
+</split>
+
+<table>
+  //Measurement data channel 0 should be used.
+  name   =histdata0
+  <field>
+    //Data field 0 should be used for the temperature.
+    name   =ch0
+    //Title of the data field displayed on the server
+    title  =Temperatur
+    //Measurement value unit displayed on the server
+    units  =Grad C
+    //Data type: 32Bit Float
+    type   =f32
+    //Position in measurement data channel 0 where the data field is saved
+    //Note: The key for the split tag is located at position "0".
+    byteofs=1
+  </field>
+</table>
+
+//===
+//=== Alarm Channels
+//===
+<split>
+  //Raw data channel (always "rm2mraw" for the rapidM2M) from which the data records should be copied
+  source=rm2mraw
+  //Alarm data channel to which the data record should be copied
+  target=alarm0
+  //If the first byte of the data record corresponds to this value, it is copied to the specified measurement data channel.
+  //Note: has to be 0x20
+  key=20
+</split>

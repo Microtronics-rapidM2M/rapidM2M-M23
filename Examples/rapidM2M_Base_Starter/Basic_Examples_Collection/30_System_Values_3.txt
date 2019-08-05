@@ -1,0 +1,94 @@
+﻿//===
+//=== Measurement Channels
+//===
+<split>
+  //Raw data channel (always "rm2mraw") from which the data records should be copied 
+  source =rm2mraw
+  //Measurement data channel to which the data record should be copied
+  target =histdata0
+  //If the first byte of the data record corresponds to this value, it is copied to the specified measurement data channel.
+  key    =00
+</split>
+ 
+<table>
+  //Measurement data channel 0 should be used.
+  name   =histdata0
+  <field>
+    //Data field 0 should be used for the input voltage Vin.
+    name   =ch0
+    //Title of the data field displayed on the server
+    title  =Vin
+    //Measurement value unit displayed on the server
+    units  =mV
+    //Data type: 32Bit unsigned
+    type   =u32
+    //Position in measurement data channel 0 where the data field is saved
+    //Note: The key for the split tag is located at position "0"
+    byteofs=1
+  </field>
+  <field>
+    //Data field 1 should be used for the Auxiliary voltage Vaux.
+    name   =ch1
+    //Title of the data field displayed on the server
+    title  =Vaux
+    //Measurement value unit displayed on the server
+    units  =mV
+    //Data type: 32Bit unsigned
+    type   =u32
+    //Position in measurement data channel 0 where the data field is saved
+    byteofs=5
+  </field>
+</table>
+
+
+//===
+//=== Settings
+//===
+<table>
+  //Configuration block 0 should be used
+  name   =rm2mconfig0
+  <field>
+    //Parameter 0 should be used for the record interval
+    name   =field0
+    //Title of the parameter displayed on the server
+    title  =Record Interval
+    //Unit to be used to enter the value for the parameter
+    units  =Min
+    //No decimal places 
+    decpl  =0
+    //Conversion factor sec.->min. (sec. used internally) 
+    vscale =0.01666666667
+    //Data type: 32Bit unsigned
+    type   =u32
+    //Position in config block 0 where the parameter is saved
+    byteofs=0
+  </field>
+  <field>
+    //Parameter 1 should be used for the transmission interval
+    name   =field1
+    //Title of the parameter displayed on the server
+    title  =Transmission Interval
+    //Unit to be used to enter the value for the parameter
+    units  =min
+    //No decimal places
+    decpl  =0
+    //Conversion factor sec.->min. (sec. used internally)
+    vscale =0.01666666667
+    //Data type: 32Bit unsigned
+    type   =u32
+    //Position in config block 0 where the parameter is saved
+    byteofs=4
+  </field>
+  <field>
+    //Parameter 2 should be used for the transmission mode
+    name   =field2
+    //Title of the parameter displayed on the server
+    title  =Transmission Mode
+    //Formatting instructions for server interface input
+    editmask=0=Interval;1=Wakeup;2=Online
+    //Data type: 8Bit unsigned
+    type   =u8
+    //Position in config block 0 where the parameter is saved
+    byteofs=8
+  </field>
+</table>
