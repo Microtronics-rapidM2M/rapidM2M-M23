@@ -81,7 +81,7 @@ const
 /**
 * Structure for SHT31 interface configuration
 * 
-* i2c:s32      - I2C Port used for communication
+* i2c:s32      - I2C port used for communication
 * addr:s32     - Address of the I2C device
 * state:s32    - Reserved
 */
@@ -171,7 +171,7 @@ stock _SHT31_CheckCrc(data{}, nBytes, crcRead)
 /**
  * Performs a softreset on the SHT31
  * 
- * This function buffers the 16-bit softreset command and then sends it to the sensor. In addition a
+ * This function buffers the 16-bit softreset command and then sends it to the sensor. In addition, a
  * message is printed to the console if the macro SHT31_DEBUG is defined.
  * 
  * @author: Microtronics
@@ -205,7 +205,7 @@ stock SHT31_SoftReset(handle[TSHT31_Handle])
  * This function calculates and returns relative humidity according to the formula in the SHT31 datasheet.
  * 
  * @author: Microtronics
- * @param rhRaw:s32 			- Raw RH measurement value
+ * @param rhRaw:s32 			- Raw rH measurement value
  * @return s32                  - Relative humidity in %
  */
 stock _SHT31_CalcRH(rhRaw)
@@ -234,7 +234,7 @@ stock _SHT31_CalcTemperatureC(tempRaw)
 /**
  * Forces the SHT31 to stop concerning the periodic data acquisition
  * 
- * This function buffers the 16-bit break command and then sends it to the sensor
+ * This function buffers the 16-bit break command and then sends it to the sensor.
  * 
  * @author: Microtronics
  * @param handle:TSHT31_Handle 	- Structure that contains SHT31 interface configuration
