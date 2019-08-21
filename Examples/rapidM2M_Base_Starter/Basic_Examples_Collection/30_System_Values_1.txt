@@ -2,7 +2,7 @@
 //=== Measurement Channels
 //===
 <split>
-  //Raw data channel (always "rm2mraw" for the rapidM2M M3) from which the data records should be copied 
+  //Raw data channel (always "rm2mraw") from which the data records should be copied 
   source =rm2mraw
   //Measurement data channel to which the data record should be copied
   target =histdata0
@@ -23,7 +23,7 @@
     //Data type: 32Bit unsigned
     type   =u32
     //Position in measurement data channel 0 where the data field is saved
-    //Note: The key for the split tag is located at position "0" 
+    //Note: The key for the split tag is located at position "0"
     byteofs=1
   </field>
   <field>

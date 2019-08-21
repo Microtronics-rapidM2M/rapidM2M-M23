@@ -62,6 +62,10 @@
     type   =u32
     // Position in config block 0 where the parameter is saved
     byteofs=0
+    //Lowest valid value for the parameter
+    min    =1
+    //Default value 
+    default=1
   </field>
   <field>
     // Parameter 1 should be used for the transmission interval
@@ -78,5 +82,9 @@
     type   =u32
     // Position in config block 0 where the parameter is saved
     byteofs=4
+    //Lowest valid value for the parameter
+    min    =10
+    //Default value 
+    default=60
   </field>
 </table>

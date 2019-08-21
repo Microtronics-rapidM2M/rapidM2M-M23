@@ -47,13 +47,16 @@
 <table>
   //Configuration block 0 should be used
   name   =rm2mconfig0
+  //Title of the config. section displayed on the server
+  title = Settings 
+
   <field>
     //Parameter 0 should be used for the record interval
     name   =field0
     //Title of the parameter displayed on the server
     title  =Record Interval
     //Unit to be used to enter the value for the parameter
-    units  =Min
+    units  =min
     //No decimal places 
     decpl  =0
     //Conversion factor sec.->min. (sec. used internally) 
@@ -62,6 +65,10 @@
     type   =u32
     //Position in config block 0 where the parameter is saved
     byteofs=0
+    //Lowest valid value for the parameter
+    min    =1
+    //Default value 
+    default=1
   </field>
   <field>
     //Parameter 1 should be used for the transmission interval
@@ -78,6 +85,10 @@
     type   =u32
     //Position in config block 0 where the parameter is saved
     byteofs=4
+    //Lowest valid value for the parameter
+    min    =10
+    //Default value 
+    default=60
   </field>
   <field>
     //Parameter 2 should be used for the transmission mode
@@ -90,5 +101,7 @@
     type   =u8
     //Position in config block 0 where the parameter is saved
     byteofs=8
+    //Default value 
+    default=1        
   </field>
 </table>
