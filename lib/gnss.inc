@@ -21,7 +21,7 @@
  * @version 20190618
  */
 
-#include <string>
+#include <string.inc>
 
 /** 
  * Use this macro to configure debug mode:
