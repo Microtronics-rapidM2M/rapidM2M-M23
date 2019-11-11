@@ -59,7 +59,7 @@ main()
   aDataStorage[0] = aItem;
   
   // Copies the desired data into the second sub-array of the two-dimensional array for storing the data records  
-  aDataStorage[1].Tag   = "5500011";        // Copies the string including the terminating zero
+  aDataStorage[1].Tag   = "1100055";        // Copies the string including the terminating zero
   aDataStorage[1].Count = 3;
   aDataStorage[1].Avg   = 2;
   

@@ -45,19 +45,19 @@ main()
      is not recommended for characters as it wastes memory and the compiler returns warning
      messages.
      
-     ----------------------
-     0x48 - "H" -> 1st cell
-     ----------------------
-     0x65 - "e" -> 2nd cell
-     ----------------------
-     0x6C - "l" -> 3rd cell
-     ----------------------
-     0x6C - "l" -> 4th cell
-     ----------------------
-     0x6F - "o" -> 5th cell
-     ----------------------
+	 ----------------------
+	 0x48 - 'H' -> 1st cell
+	 ----------------------
+	 0x65 - 'e' -> 2nd cell
+	 ----------------------
+	 0x6C - 'l' -> 3rd cell
+	 ----------------------
+	 0x6C - 'l' -> 4th cell
+	 ----------------------
+	 0x6F - 'o' -> 5th cell
+	 ----------------------
   */
-  new message2[5] = ["H","e","l","l","o"];
+  new message2[5] = ['H','e','l','l','o'];
   printf("2. %d\r\n", sizeof message2);
   
   /* Changes a single byte of a packed array */
