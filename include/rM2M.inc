@@ -503,7 +503,7 @@ native rM2M_GpioDir(gpio, dir);
 
 /**
  * <summary>
- *   Gpio level used with rM2M_GpioSet() & rM2M_GpioGet().
+ *   Gpio level used with rM2M_GpioSet() &amp; rM2M_GpioGet().
  * </summary>
  */
 const
@@ -914,7 +914,7 @@ const
  *     <li><em>OK</em> - if successful</li>
  *     <li><em>ERROR_SIM_STATE</em> - connection currently not possible due to managed SIM state, see TrM2M_GSMInfo</li>
  *     <li><em>ERROR_MODEM_DISABLED</em> - connection currently not possible (e.g. too low voltage)</li>    
- *     <li><em>ERROR_TXITF</em> - connection currently not possible due to tx interface (e.g. not opened)
+ *     <li><em>ERROR_TXITF</em> - connection currently not possible due to tx interface (e.g. not opened)</li>
  *     <li><em>ERROR</em> - if any other error occured</li>
  *   </ul>
  * </returns>
@@ -964,7 +964,7 @@ const
  *     <li><em>OK</em> - if successful</li>
  *     <li><em>ERROR_SIM_STATE</em> - mode currently not possible due to managed SIM state, see TrM2M_GSMInfo</li>
  *     <li><em>ERROR_MODEM_DISABLED</em> - mode currently not possible (e.g. too low voltage)</li>
- *     <li><em>ERROR_TXITF</em> - mode currently not possible due to tx interface (e.g. not opened)
+ *     <li><em>ERROR_TXITF</em> - mode currently not possible due to tx interface (e.g. not opened)</li>
  *     <li><em>ERROR</em> - if any other error occured</li>
  *   </ul>
  * </returns>
@@ -1991,7 +1991,7 @@ native rM2M_GetPos(&Lat, &Long, &Elev, &Qual=0, &SatUsed=0);
  *          new type;
  *          new idxEnum = 0;
  *
- *          for(idxEnum=0 ; idxEnum < nEnum ; idxEnum++)
+ *          for(idxEnum=0 ; idxEnum &lt; nEnum ; idxEnum++)
  *            rM2M_EnumPosUpdate(idxEnum, type);
  *        }
  *     3. Read data based on the detected type
