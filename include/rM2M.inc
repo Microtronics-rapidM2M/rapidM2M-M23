@@ -193,11 +193,73 @@ const
 
 /**
  * <summary>
- *   GSM info structure.
+ *   Current Uplink Access Technology in use
  * </summary>
  */
-#define TrM2M_GSMInfo[.cgmi{20}, .cgmm{20}, .cgmr{20}, .imei{16}, .imsi{16}, .iccid{21}, .mcc, .mnc, .simstate]
+const
+{
+  /* Mobile Radio AcT (Access Technology) values according to 3GPP TS27.007
+   * (Network registration at+creg/at+cgreg/at+cereg) */
+  RM2M_TX_ACT_GSM = 0,               // #0
+  RM2M_TX_ACT_GSM_COMPACT,           // #1
+  RM2M_TX_ACT_UTRAN,                 // #2
+  RM2M_TX_ACT_GSM_W_EGPRS,           // #3
+  RM2M_TX_ACT_UTRAN_W_HSDPA,         // #4
+  RM2M_TX_ACT_UTRAN_W_HSUPA,         // #5
+  RM2M_TX_ACT_UTRAN_W_HSDPA_HSUPA,   // #6
+  RM2M_TX_ACT_E_UTRAN,               // #7
 
+  RM2M_TX_ACT_WIFI = 100,            // WiFi
+  RM2M_TX_ACT_ETH = 101,             // Ethernet
+  
+  RM2M_TX_ACT_UNKNOWN = 255
+};
+
+/**
+ * <summary>
+ *   GSM info structure.
+ * </summary>
+ * <param name="cgmi">
+ *   Modem Manufacturer Identification
+ * </param>
+ * <param name="cgmm">
+ *   Modem Model Information
+ * </param>
+ * <param name="cgmr">
+ *   Modem Revision Information
+ * </param>
+ * <param name="imei">
+ *   International Mobile station Equipment Identify (i.e. Modem Serial Number)
+ * </param>
+ * <param name="imsi">
+ *   International Mobile Subscriber Identity (SIM Card)
+ * </param>
+ * <param name="iccid">
+ *   SIM Card Identifier
+ * </param>
+ * <param name="mcc">
+ *   Last/Current Network Registration: Mobile Country Code
+ * </param>
+ * <param name="mnc">
+ *   Last/Current Network Registration: Mobile Network Code
+ * </param>
+ * <param name="simstate">
+ *   States for managed SIM, see RM2M_SIM_STATE_xxx definitions
+ * </param>
+ * <param name="act">
+ *   Last/Current Network Registration: Radio Access Technology (see RM2M_TX_ACT_xxx definitions)
+ * </param>
+ * <param name="lac">
+ *   Last/Current Network Registration: Location Area Code
+ * </param>
+ * <param name="cid">
+ *   Last/Current Network Registration: Cell Identifier
+ *   2G AcT: 16-bit Cell ID
+ *   3G AcT: 28-bit UTRAN Cell-Id (16-bit Cell ID + 12-bit RNC-ID)
+ *   4G AcT: 28-bit E-UTRAN Cell-Id (8-bit Sector ID + 20-bit eNodeB-ID)
+ * </param>
+ */
+#define TrM2M_GSMInfo[.cgmi{20}, .cgmm{20}, .cgmr{20}, .imei{16}, .imsi{16}, .iccid{21}, .mcc, .mnc, .simstate, .act, .lac, .cid]
 
 /**
  * <summary>
